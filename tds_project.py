@@ -53,7 +53,7 @@ def handle_request():
 
     print("\n\nResponse:", response, "\n\n")
 
-    return jsonify({"response": response})
+    return response
 
 
 if __name__ == "__main__":
