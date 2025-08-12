@@ -9,6 +9,10 @@ app = Flask(__name__)
 
 CORS(app)
 
+@app.get("/")
+def index():
+    return "Hello, World!"
+
 
 @app.route("/api/", methods=["POST"])
 def handle_request():

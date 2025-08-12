@@ -13,7 +13,7 @@ dd.py
 *.csv
 *.png
 *.yml
-*.txt
+q*.txt
 run.py
-
 *.ipynb
+.vercel

@@ -1,0 +1,17 @@
+flask
+flask_cors
+uvicorn
+langgraph
+langchain_google_genai
+python-dotenv
+langchain_core
+pandas
+scikit-learn
+beautifulsoup4
+duckdb
+grandalf
+matplotlib
+networkx
+scipy
+seaborn
+statsmodels
