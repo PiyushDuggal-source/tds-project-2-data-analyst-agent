@@ -200,3 +200,19 @@ def extract_table_from_url(url: str, table_index: int = 0) -> dict[str, str]:
         return {"error": f"Error extracting table from {url}: {e}"}
 
 
+@tool("delete_file_tool", parse_docstring=True)
+def delete_file(filename: str) -> str:
+    """
+    Delete a file.
+
+    Args:
+      filename: File name
+
+    Returns:
+      Status message
+    """
+    if os.path.exists(filename):
+        os.remove(filename)
+        return f"File '{filename}' deleted."
+    else:
+        return f"File '{filename}' not found."

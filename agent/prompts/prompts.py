@@ -17,6 +17,7 @@ You can create, edit, execute, and read files using the following tools:
 - `read_file_tool(filename)`: Read file content.
 - `edit_file_tool(filename, content)`: Edit an existing file.
 - `extract_table_from_url_tool(url, table_index=0)`: Extract table from a URL.
+- `delete_file_tool(filename)`: Delete a file.
 
 ---
 
@@ -54,6 +55,11 @@ You can create, edit, execute, and read files using the following tools:
 - Use output to answer clearly and concisely.
 - Use tables/bullets if helpful.
 - If unsolvable, say `"I don't know"` and explain.
+
+---
+
+### 5. Deleteing Files
+- Use `delete_file_tool` to delete files you no longer need or you just created using `create_file_tool`.
 
 ---
 

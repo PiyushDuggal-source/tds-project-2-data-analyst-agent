@@ -18,6 +18,7 @@ from langchain_core.messages import (
 )
 
 from tools.tools import (
+    delete_file,
     execute_file,
     create_file,
     read_file,
@@ -55,7 +56,14 @@ class AgentState(TypedDict):
 
 # tools
 
-tools = [execute_file, create_file, read_file, edit_file, extract_table_from_url]
+tools = [
+    execute_file,
+    create_file,
+    read_file,
+    edit_file,
+    extract_table_from_url,
+    delete_file,
+]
 
 llm_with_tools = llm.bind_tools(tools)
 
@@ -141,11 +149,11 @@ def get_unified_agent_graph():
     return graph
 
 
-def run_agent():
+def run_agent(qFilename: str):
 
     QUESTION = ""
 
-    with open("question_save.txt", "r") as f:
+    with open(qFilename, "r") as f:
         QUESTION = f.read()
 
     state = {"messages": [HumanMessage(content=QUESTION)], "final_response": ""}
