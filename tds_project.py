@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 CORS(app)
 
+
 @app.get("/")
 def index():
     return "Hello, World!"
@@ -61,6 +62,4 @@ def handle_request():
 
 
 if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run("tds_project:app", host="0.0.0.0", port=8000, reload=True)
+    app.run(host="0.0.0.0", port=8000)
