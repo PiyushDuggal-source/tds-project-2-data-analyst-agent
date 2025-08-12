@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+dd.py
+*.csv
+*.png
+*.yml
+*.txt
+run.py
+
+*.ipynb
