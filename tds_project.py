@@ -1,23 +1,20 @@
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 from agent.agent import run_agent
 
 
 app = Flask(__name__)
 
+CORS(app)
+
 
 @app.route("/api/", methods=["POST"])
 def handle_request():
-    # Check that questions.txt is present
-    # if "questions" not in request.files:
-    #     return jsonify({"error": "questions.txt file is required"}), 400
-    #
-    # Get the required file
-    questions_file = request.files["questions.txt"]
 
     file_list = []
-    for key, value in request.files.items():
+    for _, value in request.files.items():
         content = value.read()  # read once
         files = {
             "name": value.filename,
@@ -43,16 +40,16 @@ def handle_request():
 
     # Save to disk
     if question_content:
-        with open(f"{question_file_name.split('.')[0]}_save.txt", "wb") as f:
+        with open(f"{question_file_name.split('.')[0]}.txt", "wb") as f:
             f.write(question_content)
 
     if csv_content:
-        with open(f"{csv_file_name.split('.')[0]}_save.csv", "wb") as f:
+        with open(f"{csv_file_name.split('.')[0]}.csv", "wb") as f:
             f.write(csv_content)
 
     # Run the agent
 
-    response = run_agent()
+    response = run_agent(question_file_name)
 
     print("\n\nResponse:", response, "\n\n")
 
