@@ -162,6 +162,6 @@ def run_agent(qFilename: str):
     print("\n\nQUESTION:", QUESTION, "\n\n")
 
     graph = get_unified_agent_graph()
-    resp = graph.invoke(state)
+    resp = graph.invoke(state, {"recursion_limit": 100})
 
     return resp["final_response"]
